@@ -297,7 +297,7 @@
             
             <button class="btn music-btn" id="sanwaliBtn" onclick="playSong('sanwali')">🔊 Sanwali</button>
             <button class="btn music-btn" id="radheBtn" onclick="playSong('radhe')">🎵 RADHE Radhe</button>
-            <button class="btn" onclick="pauseMusic()">⏸️ Pause</button>
+            <button class="btn" id="playPauseBtn" onclick="togglePlayPause()">⏸️ Pause</button>
             <br>
             
             <div class="socials">
@@ -328,39 +328,56 @@
         const radheMusic = document.getElementById('radheMusic');
         const sanwaliBtn = document.getElementById('sanwaliBtn');
         const radheBtn = document.getElementById('radheBtn');
+        const playPauseBtn = document.getElementById('playPauseBtn');
         
-        let currentSong = null;
+        let currentSong = 'sanwali';
+        let isPlaying = false;
         
         function enterSite() {
             welcomeScreen.classList.add('hidden');
             mainSite.classList.add('show');
-            playSong('sanwali'); // Default Sanwali wala song bajega
+            playSong('sanwali');
         }
         
         function playSong(song) {
-            // Pehle sab pause karo
             sanwaliMusic.pause();
             radheMusic.pause();
             sanwaliBtn.classList.remove('active');
             radheBtn.classList.remove('active');
             
+            currentSong = song;
+            
             if (song === 'sanwali') {
                 sanwaliMusic.play();
                 sanwaliBtn.classList.add('active');
-                currentSong = 'sanwali';
             } else if (song === 'radhe') {
                 radheMusic.play();
                 radheBtn.classList.add('active');
-                currentSong = 'radhe';
             }
+            
+            isPlaying = true;
+            playPauseBtn.innerText = '⏸️ Pause';
         }
         
-        function pauseMusic() {
-            sanwaliMusic.pause();
-            radheMusic.pause();
-            sanwaliBtn.classList.remove('active');
-            radheBtn.classList.remove('active');
-            currentSong = null;
+        function togglePlayPause() {
+            if (isPlaying) {
+                // Pause kar
+                sanwaliMusic.pause();
+                radheMusic.pause();
+                playPauseBtn.innerText = '▶️ Play';
+                isPlaying = false;
+            } else {
+                // Resume kar - jo last song tha wahi bajega
+                if (currentSong === 'sanwali') {
+                    sanwaliMusic.play();
+                    sanwaliBtn.classList.add('active');
+                } else {
+                    radheMusic.play();
+                    radheBtn.classList.add('active');
+                }
+                playPauseBtn.innerText = '⏸️ Pause';
+                isPlaying = true;
+            }
         }
     </script>
 </body>
