@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anubhav Ruler 👑 | Official</title>
     
-    <!-- Social Share Preview -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <meta property="og:title" content="Anubhav Ruler 👑">
     <meta property="og:description" content="OXIE 1845639613 | Radhe Radhe">
     <meta property="og:url" content="https://harswardhan.github.io/anubhav-jha/">
@@ -41,7 +42,6 @@
             text-shadow: 0 4px 10px rgba(0,0,0,0.3);
             word-break: break-word;
         }
-        /* Typing Effect */
         .typing {
             border-right: 3px solid #fff;
             white-space: nowrap;
@@ -80,16 +80,15 @@
             background: #FFD700;
             color: #000;
         }
-        /* Social Icons */
         .socials {
             margin-top: 25px;
             display: flex;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
             flex-wrap: wrap;
         }
         .socials a {
-            font-size: 40px;
+            font-size: 45px;
             color: white;
             text-decoration: none;
             transition: 0.3s;
@@ -100,19 +99,21 @@
             transform: scale(1.4) rotate(10deg); 
             color: #00ffff; 
         }
+        .socials .fa-instagram:hover {
+            color: #E1306C;
+        }
         footer {
             margin-top: 30px;
             opacity: 0.7;
             font-size: 0.9rem;
         }
 
-        /* Mobile ke liye fix */
         @media (max-width: 480px) {
             body { padding: 30px 15px; }
             h1 { font-size: 1.8rem; }
             .typing { font-size: 1.8rem; }
             .btn { padding: 12px 20px; font-size: 0.9rem; }
-            .socials a { font-size: 35px; }
+            .socials a { font-size: 38px; }
             .box { padding: 25px 15px; }
         }
     </style>
@@ -127,8 +128,12 @@
         <br>
         
         <div class="socials">
-            <a href="https://instagram.com/oxie_45" target="_blank">🔥</a>
-            <a href="https://instagram.com/anubhavjha.45" target="_blank">📱</a>
+            <a href="https://instagram.com/oxie_45" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://instagram.com/anubhavjha.45" target="_blank">
+                <i class="fas fa-fire"></i>
+            </a>
         </div>
         
         <audio id="rulerMusic" loop>
