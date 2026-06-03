@@ -28,7 +28,7 @@
         }
         .box {
             background: rgba(0,0,0,0.3);
-            padding: 40px;
+            padding: 30px 20px;
             border-radius: 20px;
             max-width: 600px;
             margin: auto;
@@ -36,9 +36,10 @@
             backdrop-filter: blur(10px);
         }
         h1 {
-            font-size: 3rem;
+            font-size: 2.2rem; 
             margin: 0 0 10px 0;
             text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            word-break: break-word;
         }
         /* Typing Effect */
         .typing {
@@ -48,6 +49,7 @@
             animation: typing 3s steps(13), blink .5s step-end infinite alternate;
             margin: 0 auto;
             display: inline-block;
+            max-width: 100%;
         }
         @keyframes typing { from { width: 0 } to { width: 100% } }
         @keyframes blink { 50% { border-color: transparent } }
@@ -82,15 +84,17 @@
         .socials {
             margin-top: 25px;
             display: flex;
-            gap: 25px;
+            gap: 20px;
             justify-content: center;
+            flex-wrap: wrap;
         }
         .socials a {
-            font-size: 35px;
+            font-size: 40px;
             color: white;
             text-decoration: none;
             transition: 0.3s;
             filter: drop-shadow(0 0 10px #ff00ff);
+            line-height: 1;
         }
         .socials a:hover { 
             transform: scale(1.4) rotate(10deg); 
@@ -100,6 +104,16 @@
             margin-top: 30px;
             opacity: 0.7;
             font-size: 0.9rem;
+        }
+
+        /* Mobile ke liye fix */
+        @media (max-width: 480px) {
+            body { padding: 30px 15px; }
+            h1 { font-size: 1.8rem; }
+            .typing { font-size: 1.8rem; }
+            .btn { padding: 12px 20px; font-size: 0.9rem; }
+            .socials a { font-size: 35px; }
+            .box { padding: 25px 15px; }
         }
     </style>
 </head>
@@ -113,8 +127,8 @@
         <br>
         
         <div class="socials">
-            <a href="https://instagram.com/oxie_45" target="_blank">📸</a>
-            <a href="https://instagram.com/anubhavjha.45" target="_blank">🔥</a>
+            <a href="https://instagram.com/oxie_45" target="_blank">🔥</a>
+            <a href="https://instagram.com/anubhavjha.45" target="_blank">📱</a>
         </div>
         
         <audio id="rulerMusic" loop>
@@ -128,13 +142,11 @@
         const music = document.getElementById('rulerMusic');
         const musicBtn = document.querySelector('.music-btn');
         
-        // Auto play on first click anywhere
         document.addEventListener('click', function() {
             music.play();
             musicBtn.innerText = '⏸️ Pause RADHE Radhe';
         }, { once: true });
         
-        // Button toggle function
         function toggleMusic() {
             if (music.paused) {
                 music.play();
